@@ -57,6 +57,8 @@ npm install
 npm run conformance:local
 ```
 
+Port busy? Run `npm run conformance:local -- --port 18080`.
+
 ## SDKs
 
 - TypeScript: `sdk/ts/`
@@ -67,4 +69,3 @@ npm run conformance:local
 - License: Apache-2.0 (`LICENSE`, `NOTICE`)
 - Trademark policy: `TRADEMARK_POLICY.md`
 - Patent pledge: `PATENT_PLEDGE.md`
-
