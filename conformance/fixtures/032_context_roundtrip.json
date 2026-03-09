@@ -1,0 +1,7 @@
+{
+  "id": "032_context_roundtrip",
+  "kind": "context_roundtrip",
+  "content": "Proof-carrying context: return decodeable passage spans with stable sha256 hashes.",
+  "query": "{{TOK}}"
+}
+

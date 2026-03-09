@@ -1,0 +1,11 @@
+{
+  "id": "045_idish_substring_collision",
+  "kind": "idish_substring_collision",
+  "content_exact": "{{TOK}} is EXACT.",
+  "content_super": "{{TOK}}6 is SUPERSTRING.",
+  "expects": {
+    "must_include_canonical": "{{TOK}} is exact",
+    "must_exclude_canonical": "{{TOK}}6 is superstring"
+  }
+}
+

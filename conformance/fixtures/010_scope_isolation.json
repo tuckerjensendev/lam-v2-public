@@ -1,0 +1,6 @@
+{
+  "id": "010_scope_isolation",
+  "kind": "scope_isolation",
+  "content": "Scope A only. LAM is private."
+}
+

@@ -1,0 +1,13 @@
+{
+  "id": "037_video_text_view_evidence",
+  "kind": "upstream_text_view_claim_evidence",
+  "content_type": "video/mp4",
+  "asset_b64_path": "conformance/fixtures/assets/mp4_asr_blunt_answers.b64",
+  "text_transform": "asr_text:v1",
+  "text_template": "{{TOK}} I prefer blunt answers.",
+  "expects": {
+    "span_type": "text",
+    "transform_prefix": "asr_text:v1:sha256="
+  }
+}
+

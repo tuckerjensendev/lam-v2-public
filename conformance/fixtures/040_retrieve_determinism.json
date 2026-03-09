@@ -1,0 +1,10 @@
+{
+  "id": "040_retrieve_determinism",
+  "kind": "retrieve_determinism",
+  "content_1": "I like {{OBJ}}.",
+  "content_2": "I don't like {{OBJ}}.",
+  "expects": {
+    "must_include_canonical": "I don't like {{OBJ}}",
+    "must_exclude_canonical": "I like {{OBJ}}"
+  }
+}

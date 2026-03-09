@@ -1,0 +1,61 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: lam
+      POSTGRES_PASSWORD: lam
+      POSTGRES_DB: lam
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lam -d lam"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - lam_conformance_pg:/var/lib/postgresql/data
+
+  lam:
+    image: ghcr.io/tuckerjensendev/lam-prove-it:latest
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: ["sh", "-lc", "node scripts/db-migrate.js && node dist/index.js"]
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8080
+      DATABASE_URL: postgresql://lam:lam@postgres:5432/lam
+      # Dev-only defaults. Do not reuse in production.
+      LAM_MASTER_KEY_B64: ${LAM_MASTER_KEY_B64:-"DkdDKK1Bl6hR2Zi8WiiwRywJHq7em0yK8NHbmFYhkAc="}
+      LAM_ADMIN_TOKEN: ${LAM_ADMIN_TOKEN:-"demo-admin"}
+      LAM_CELL_DIR: /data/cells
+      LAM_REJECT_CLIENT_SCOPE: "1"
+    ports:
+      - "127.0.0.1:${LAM_DEMO_HTTP_PORT:-8080}:8080"
+    volumes:
+      - lam_conformance_cells:/data/cells
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8080/health | grep -q '\"ok\":true'"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+
+  lam_worker:
+    image: ghcr.io/tuckerjensendev/lam-prove-it:latest
+    depends_on:
+      postgres:
+        condition: service_healthy
+      lam:
+        condition: service_healthy
+    command: ["sh", "-lc", "node dist/scripts/enrichment-worker.js"]
+    environment:
+      DATABASE_URL: postgresql://lam:lam@postgres:5432/lam
+      LAM_MASTER_KEY_B64: ${LAM_MASTER_KEY_B64:-"DkdDKK1Bl6hR2Zi8WiiwRywJHq7em0yK8NHbmFYhkAc="}
+      LAM_CELL_STORE: fs
+      LAM_CELL_DIR: /data/cells
+      LAM_REJECT_CLIENT_SCOPE: "1"
+    volumes:
+      - lam_conformance_cells:/data/cells
+
+volumes:
+  lam_conformance_pg:
+  lam_conformance_cells:
+

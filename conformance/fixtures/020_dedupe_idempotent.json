@@ -1,0 +1,9 @@
+{
+  "id": "020_dedupe_idempotent",
+  "kind": "dedupe_idempotent",
+  "content": "I prefer pineapple.",
+  "expects": {
+    "pref_canonical": "I prefer pineapple"
+  }
+}
+

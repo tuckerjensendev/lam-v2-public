@@ -1,0 +1,11 @@
+{
+  "id": "001_basic_text",
+  "kind": "basic_text",
+  "content": "LAM bytea test. I prefer blunt answers.",
+  "expects": {
+    "pref_canonical": "I prefer blunt answers",
+    "must_have_quotes": ["LAM bytea test. I prefer blunt answers."],
+    "must_have_exact_quotes": ["LAM"]
+  }
+}
+

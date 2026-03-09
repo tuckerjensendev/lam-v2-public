@@ -1,0 +1,14 @@
+{
+  "id": "035_pdf_text_evidence",
+  "kind": "pdf_text_evidence",
+  "content_type": "application/pdf",
+  "asset_b64_path": "conformance/fixtures/assets/pdf_green_tea.b64",
+  "query": "green tea",
+  "expects": {
+    "canonical": "I like green tea",
+    "quote_substring": "green tea",
+    "span_type": "text",
+    "transform_prefix": "pdf_text:v1:sha256="
+  }
+}
+

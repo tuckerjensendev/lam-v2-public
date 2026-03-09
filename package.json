@@ -1,0 +1,17 @@
+{
+  "name": "lam-v2-public",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "conformance": "tsx conformance/runner/run.ts",
+    "conformance:local": "node scripts/conformance-local.mjs"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.8.2"
+  }
+}
+

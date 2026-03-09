@@ -1,0 +1,17 @@
+{
+  "id": "060_scope_selector",
+  "kind": "scope_selector",
+  "allowed": {
+    "scope_user": "user:alice",
+    "scope_org": "org:acme",
+    "scope_project": "proj:alpha",
+    "namespace": "conformance/selector"
+  },
+  "forbidden": {
+    "scope_user": "other:alice",
+    "scope_org": "evil",
+    "scope_project": "x",
+    "namespace": "notconformance"
+  }
+}
+

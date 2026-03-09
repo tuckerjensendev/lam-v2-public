@@ -1,0 +1,11 @@
+{
+  "id": "041_state_over_time",
+  "kind": "state_over_time",
+  "content": "I used to drink coffee, but now I drink tea.",
+  "expects": {
+    "now_query": "{{TOK}} now drink",
+    "past_query": "{{TOK}} used to drink",
+    "now_canonical": "Now: I drink tea",
+    "past_canonical": "Used to: drink coffee"
+  }
+}

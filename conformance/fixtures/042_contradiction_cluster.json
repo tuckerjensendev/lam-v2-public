@@ -1,0 +1,9 @@
+{
+  "id": "042_contradiction_cluster",
+  "kind": "contradiction_cluster",
+  "objects": ["{{TOK}} alpha", "{{TOK}} beta"],
+  "expects": {
+    "must_include_canonicals": ["I don't like {{TOK}} alpha", "I don't like {{TOK}} beta"],
+    "must_exclude_canonicals": ["I like {{TOK}} alpha", "I like {{TOK}} beta"]
+  }
+}
